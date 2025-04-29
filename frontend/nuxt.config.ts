@@ -12,12 +12,12 @@ export default defineNuxtConfig({
 	build: {
 		transpile: ["primevue"],
 	},
-	vite: {
-		ssr: {
-			// ensure hammer.js only loads client-side
-			noExternal: ["hammerjs"],
-		},
-	},
+	// vite: {
+	// 	ssr: {
+	// 		// ensure hammer.js only loads client-side
+	// 		noExternal: ["hammerjs"],
+	// 	},
+	// },
 	primevue: {
 		// ripple: true, // enable ripple effect
 		usePrimeVue: true,
