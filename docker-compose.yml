@@ -22,7 +22,7 @@ services:
             context: ./frontend
             dockerfile: Dockerfile
         environment:
-            - API_BASE=${API_BASE:-http://backend:8000}
+            - API_BASE_URL=${API_BASE_URL:-http://backend:8000}
         ports:
             - "3000:3000"
         depends_on:

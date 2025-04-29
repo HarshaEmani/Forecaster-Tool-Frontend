@@ -38,7 +38,7 @@ export default defineNuxtConfig({
 	},
 	runtimeConfig: {
 		public: {
-			apiBase: process.env.API_BASE_URL || "http://localhost:8000",
+			apiBase: process.env.API_BASE_URL || "https://forecaster-backend.onrender.com",
 		},
 	},
 });
