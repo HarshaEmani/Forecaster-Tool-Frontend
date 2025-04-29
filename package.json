@@ -1,0 +1,37 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.11.0",
+    "@primeuix/themes": "^1.0.3",
+    "@primevue/forms": "^4.3.3",
+    "@vueuse/core": "^13.1.0",
+    "@vueuse/nuxt": "^13.1.0",
+    "axios": "^1.9.0",
+    "chart.js": "^4.4.9",
+    "chartjs-plugin-zoom": "^2.2.0",
+    "nuxt": "^3.17.1",
+    "pinia": "^3.0.2",
+    "primeflex": "^4.0.0",
+    "primeicons": "^7.0.0",
+    "primevue": "^4.3.3",
+    "tailwindcss": "^4.1.4",
+    "tailwindcss-primeui": "^0.6.1",
+    "vue": "^3.5.13",
+    "vue-chartjs": "^5.3.2",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@primevue/nuxt-module": "^4.3.3",
+    "@types/chart.js": "^2.9.41",
+    "postcss-import": "^16.1.0"
+  }
+}

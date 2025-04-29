@@ -1,0 +1,34 @@
+:root {
+	/* --light‐mode colors: */
+	--primary-color: #2563eb;
+	--secondary-color: #22c55e;
+	--surface-ground: #ffffff;
+	--text-color: #1f2937;
+}
+
+.theme-dark {
+	/* --dark‐mode colors: */
+	--primary-color: #4caf50;
+	--secondary-color: #ff9800;
+	--surface-ground: #121212;
+	--text-color: #f5f5f5;
+}
+
+/* primevue components can pick up these vars: */
+body {
+	background: var(--surface-ground);
+	color: var(--text-color);
+}
+
+/* override PrimeVue “primary” buttons: */
+.p-button.p-button-primary {
+	background-color: var(--primary-color) !important;
+	border-color: var(--primary-color) !important;
+	color: var(--text-color) !important;
+}
+
+/* override PrimeVue “secondary” buttons (if you use outlined/etc) */
+.p-button.p-button-secondary {
+	border-color: var(--secondary-color) !important;
+	color: var(--secondary-color) !important;
+}

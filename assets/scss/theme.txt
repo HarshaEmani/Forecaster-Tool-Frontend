@@ -1,0 +1,24 @@
+// assets/scss/theme.scss
+
+// 1) configure PrimeVue’s “styled” seed with your light-mode colors
+@use "primevue/resources/themes/seed" with (
+	$primary: #2563eb,
+	$secondary: #22c55e,
+	$surface-ground: #ffffff,
+	$text-color: #1f2937
+);
+
+// 2) dark variant lives in the `.theme-dark` class
+.theme-dark {
+	@include seed.$dark(
+		$primary: #4caf50,
+		// dark-mode primary
+		$secondary: #ff9800,
+		// dark-mode secondary
+		$surface-ground: #121212,
+		$text-color: #f5f5f5
+	);
+}
+
+// 3) then pull in PrimeVue’s core styles
+@import "primevue/resources/primevue.min.css";
