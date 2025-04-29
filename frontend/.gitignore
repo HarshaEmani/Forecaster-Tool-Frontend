@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -159,5 +160,4 @@ logs
 .env
 .env.*
 !.env.example
-
-__pycache__/
+>>>>>>> 7f5de6f (Initial commit: add existing project files)
