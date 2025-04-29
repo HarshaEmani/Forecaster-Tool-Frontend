@@ -1,5 +1,6 @@
 // utils/api.ts
 import axios from "axios";
+import { useRuntimeConfig } from "#app";
 
 export async function fetchFeeders() {
 	const config = useRuntimeConfig();
