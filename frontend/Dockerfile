@@ -1,30 +1,23 @@
-# 1. Build stage
-FROM node:20-alpine AS builder
+# Dockerfile.dev
 
-WORKDIR /app
-
-# Copy only the package manifest + lockfile
-COPY package.json package-lock.json ./
-
-# Install with npm (clean, reproducible)
-RUN npm ci
-
-# Copy the rest of your source & build
-COPY . .
-RUN npm run build    # nuxt build
-
-# 2. Production stage
 FROM node:20-alpine
 
+# ensure we can bind to the dev server port
+ENV HOST=0.0.0.0
+# you can override this at runtime if needed
+ENV PORT=3000
+
 WORKDIR /app
 
-# Copy over the built output and production deps
-COPY --from=builder /app/.output /app/.output
-COPY --from=builder /app/package.json /app/package.json
-COPY --from=builder /app/package-lock.json /app/package-lock.json
+# copy only lock + manifest, install ALL deps (including dev)
+COPY package.json package-lock.json ./
+RUN npm ci
 
-RUN npm ci --omit=dev    # install only prod deps
+# copy everything else
+COPY . .
 
-EXPOSE 3000
+# expose the dev port
+EXPOSE ${PORT}
 
-CMD ["node", ".output/server/index.mjs"]
+# run Nuxt in dev mode
+CMD ["npm", "run", "dev"]
