@@ -1,0 +1,8 @@
+node_modules
+.output/server/node_modules/@vue/devtools-api
+.output/server/node_modules/@vue
+.output/server/node_modules
+.dockerignore
+*.log
+.env*
+.git

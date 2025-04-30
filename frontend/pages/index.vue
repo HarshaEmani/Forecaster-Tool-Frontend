@@ -26,6 +26,8 @@
 import { fetchFeeders, fetchForecasts } from '~/utils/api'
 import { useForecastStore } from '~/store/forecastStore'
 import { useRouter } from 'vue-router'
+// import axios from "axios";
+// const config = useRuntimeConfig();
 
 function toggleDarkMode() {
     document.documentElement.classList.toggle('my-app-dark');
@@ -44,8 +46,16 @@ interface FeederCard {
 
 const feeders = ref<FeederCard[]>([])
 
+const data = await fetchFeeders()
+console.log('Fetched feeders:', data)
+
 onMounted(async () => {
-    const data = await fetchFeeders()
+    // const data = await fetchFeeders()
+    // const { data } = await axios.get(`${config.public.apiBase}/feeders`);
+
+    console.log('Fetched feeders:', data.feeders)
+    // data.feeders.map((f) => console.log(f)) // extract only the IDs
+
 
     feeders.value = await Promise.all(
         data.map(async (id: number) => {

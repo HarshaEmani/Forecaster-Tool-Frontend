@@ -1,3 +1,10 @@
+// nuxt.config.ts
+import { config as loadEnv } from "dotenv";
+import { resolve } from "path";
+
+// Manually load env file from one directory up
+loadEnv({ path: resolve(__dirname, "../.env") });
+
 import Aura from "@primeuix/themes/aura";
 import Material from "@primeuix/themes/material";
 import Lara from "@primeuix/themes/lara";
@@ -7,7 +14,7 @@ export default defineNuxtConfig({
 	css: ["primeflex/primeflex.css", "primeicons/primeicons.css", "@/assets/tailwind.css"],
 	plugins: [
 		// load your custom theme preset
-		"~/plugins/my-custom-theme.ts",
+		// "~/plugins/my-custom-theme.ts",
 	],
 	build: {
 		transpile: ["primevue"],
@@ -17,6 +24,10 @@ export default defineNuxtConfig({
 	// 		// ensure hammer.js only loads client-side
 	// 		noExternal: ["hammerjs"],
 	// 	},
+	// },
+	// server: {
+	// 	host: process.env.HOST || "0.0.0.0",
+	// 	port: process.env.PORT ? Number(process.env.PORT) : 3000,
 	// },
 	primevue: {
 		// ripple: true, // enable ripple effect
@@ -38,7 +49,9 @@ export default defineNuxtConfig({
 	},
 	runtimeConfig: {
 		public: {
-			apiBase: process.env.API_BASE_URL || "https://forecaster-backend.onrender.com",
+			apiBase: process.env.API_BASE_URL || "https://forecaster-tool-backend.onrender.com",
 		},
 	},
 });
+
+console.log("🚀 API_BASE_URL from env:", process.env.API_BASE_URL);
