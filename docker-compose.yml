@@ -4,9 +4,10 @@ services:
             context: ./backend
             dockerfile: Dockerfile
         restart: unless-stopped
-        environment:
-            - SUPABASE_URL=${SUPABASE_URL}
-            - SUPABASE_SECRET_KEY=${SUPABASE_SECRET_KEY}
+        image: backend:latest
+        container_name: backend
+        env_file:
+            - .env
         ports:
             - "8000:8000"
         healthcheck:
@@ -17,12 +18,13 @@ services:
 
     frontend:
         restart: unless-stopped
-        # command: npm run start
+        image: frontend:latest
+        container_name: frontend
+        env_file:
+            - .env
         build:
             context: ./frontend
             dockerfile: Dockerfile
-        environment:
-            - API_BASE=${API_BASE:-http://backend:8000}
         ports:
             - "3000:3000"
         depends_on:

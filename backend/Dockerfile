@@ -1,7 +1,7 @@
 # backend/Dockerfile
 
 # 1. Base image w/ Python
-FROM python:3.11-slim
+FROM python:3.11-slim-bookworm
 
 WORKDIR /app
 
